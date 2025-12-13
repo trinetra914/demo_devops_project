@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-devops-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-devops-app
+  template:
+    metadata:
+      labels:
+        app: demo-devops-app
+    spec:
+      containers:
+      - name: demo-devops-app
+        image: dharma473/demo-devops-app:latest
+        ports:
+        - containerPort: 80
