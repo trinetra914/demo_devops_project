@@ -1,0 +1,18 @@
+ingress:
+  enabled: true
+  className: nginx
+  host: demo-devops.local
+  path: /
+  pathType: Prefix
+replicaCount: 1
+
+image:
+  repository: dharma473/demo_devops_project
+  tag: latest
+  pullPolicy: Always
+
+containerPort: 80
+
+service:
+  type: NodePort
+  port: 80
