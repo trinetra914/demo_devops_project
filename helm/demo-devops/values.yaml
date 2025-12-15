@@ -1,18 +1,14 @@
+# --- FINAL-FINAL CORRECTED values.yaml ---
+
+# 1. Disable Ingress (Correct)
 ingress:
-  enabled: true
-  className: nginx
-  host: demo-devops.local
-  path: /
-  pathType: Prefix
-replicaCount: 1
+  enabled: false 
 
-image:
-  repository: dharma473/demo_devops_project
-  tag: latest
-  pullPolicy: Always
+# ... (Image and Deployment config are fine) ...
 
-containerPort: 80
-
+# 3. Service Configuration
 service:
-  type: NodePort
-  port: 80
+  type: ClusterIP       # <--- CHANGE BACK TO CLUSTERIP
+  port: 80              # Service ClusterIP Port
+  targetPort: 80        # Container Port
+  # REMOVE THE nodePort LINE ENTIRELY

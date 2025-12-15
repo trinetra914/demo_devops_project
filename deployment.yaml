@@ -13,7 +13,8 @@ spec:
         app: demo-devops-app
     spec:
       containers:
-      - name: demo-devops-app
-        image: dharma473/demo-devops-app:latest
-        ports:
-        - containerPort: 80
+        - name: demo-devops-app
+          image: dharma473/demo_devops_project:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

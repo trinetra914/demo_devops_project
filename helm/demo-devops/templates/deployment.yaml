@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "demo-devops.name" . }}
+  # CHANGE THIS: Use 'fullname' for consistency with service.yaml
+  name: {{ include "demo-devops.fullname" . }} 
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "demo-devops.name" . }}
+      # CHANGE THIS: Use 'fullname' here
+      app: {{ include "demo-devops.fullname" . }} 
   template:
     metadata:
       labels:
-        app: {{ include "demo-devops.name" . }}
+        # CHANGE THIS: Use 'fullname' here
+        app: {{ include "demo-devops.fullname" . }} 
     spec:
       containers:
-        - name: {{ include "demo-devops.name" . }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - containerPort: {{ .Values.containerPort }}
+        - name: {{ include "demo-devops.fullname" . }}
+# ... (rest of the file)
